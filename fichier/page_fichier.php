@@ -154,13 +154,19 @@ fclose($unAutreFichier);
             'chemin' => ""
         );
 
-        $news_actuel['listeActus'][] = $actu_a_ajouter;
-        $final_data = json_encode($news_actuel);
+        if(sizeof($news_actuel['listeActus']) < 10){
+            $news_actuel['listeActus'][] = $actu_a_ajouter;
+            $final_data = json_encode($news_actuel);
 
-        if(file_put_contents("desActus.json", $final_data)){
-            echo 'texte ajouté !';
-            header('location: page_fichier.php');
+            if(file_put_contents("desActus.json", $final_data)){
+                echo 'texte ajouté !';
+                header('location:page_fichier.php');
+            }
+        } else {
+            echo '<b>Il y a déjà dix actualités ! c\'est plein !</b>';
         }
+
+        
     }
 
     function ajouterActuAvecImage($nom){
@@ -174,11 +180,16 @@ fclose($unAutreFichier);
             'chemin' => 'img/'.$nom
         );
 
-        $news_actuel['listeActus'][] = $actu_a_ajouter;
-        $final_data = json_encode($news_actuel);
+        if(sizeof($news_actuel['listeActus']) < 10){
+            $news_actuel['listeActus'][] = $actu_a_ajouter;
+            $final_data = json_encode($news_actuel);
 
-        if(file_put_contents("desActus.json", $final_data)){
-            echo 'fichier ajouté !';
-            header('location: page_fichier.php');
+            if(file_put_contents("desActus.json", $final_data)){
+                echo 'fichier ajouté !';
+                header('location:page_fichier.php');
+            }
+        } else {
+            echo 'Il y a déjà dix actualités ! c\'est plein !';
         }
+        
     }
