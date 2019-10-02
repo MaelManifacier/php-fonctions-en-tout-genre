@@ -1,0 +1,31 @@
+p, h1, h2, h3, h4, h5 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    padding: 1%;
+}
+
+#form-control {
+    border: 5px solid black;
+}
+
+#piedDePage {
+    background-color: rgb(188, 217, 245);
+    min-height: 30vh;
+    text-align: center;
+    padding-top: 3vh;
+    margin-top: 5vh;
+}
+
+button {
+    background-color: rgb(146, 240, 216);
+    border: none;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(75, 87, 141);
+}
